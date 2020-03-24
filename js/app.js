@@ -46,17 +46,38 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 var Player = function() {
     this.sprite = 'images/char-boy.png';  
-    this.x = 2 * 101;
-    this.y = 6 * 63;
+    this.x      = 2 * 101;
+    this.y      = 6 * 63;
 }
 // This class requires an update(), render() and
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 // a handleInput() method.
+Player.prototype.handleInput = function (pressedKey) {
+    switch(pressedKey) {
+        case 'up':
+            this.move(0,-1);
+            break;
+        case 'down':
+            this.move(0,1);
+            break;
+        case 'right' :
+            this.move(1,0);
+            break;
+        case 'left' :
+            this.move(-1,0);
+            break;
+    }
+}
 
-
-
+// 
+Player.prototype.move = function(deltaX, deltaY) {
+    var dX = deltaX * 101;
+    var dY = deltaY * 83;
+    this.x = this.x + dX;
+    this.y = this.y + dY;
+}
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [];
@@ -80,7 +101,7 @@ document.addEventListener('keyup', function(e) {
         40: 'down'
     };
 
-    // player.handleInput(allowedKeys[e.keyCode]);
+    player.handleInput(allowedKeys[e.keyCode]);
 });
 
 
