@@ -69,7 +69,7 @@ document.addEventListener('keyup', function(e) {
         40: 'down'
     };
 
-    player.handleInput(allowedKeys[e.keyCode]);
+    // player.handleInput(allowedKeys[e.keyCode]);
 });
 
 
