@@ -9,7 +9,7 @@ var Enemy = function(posX,posY) {
     this.x = posX;
     this.y = posY;
     // speed will control the update method
-    this.speed = 2;
+    this.speed = 20;
     // direction needed to guide the bug when moving through the canvas                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
     this.isGoingRight = true;
 };
@@ -85,14 +85,13 @@ Player.prototype.move = function(deltaX, deltaY) {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [];
-allEnemies.push(new Enemy(0 * 101 + 10, 1 * 63));
+allEnemies.push(new Enemy(0 * 101     +10, 1 * 63));
 allEnemies.push(new Enemy(1 * 101     , 2 * 63 + 20));
 allEnemies.push(new Enemy(2 * 101     , 3 * 63 + 40));
 
 
 // Place the player object in a variable called player
 var player = new Player();
-
 
 
 // This listens for key presses and sends the keys to your
